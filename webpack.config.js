@@ -49,6 +49,18 @@ const webpack = {
           },
         ],
       },
+      {
+        test: /\.(ttf|eot|woff|woff2|svg|png|ico|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              publicPath: "./", // 경로가 맞지 않으면 이미지가 보여지지 않는다.
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -58,6 +70,7 @@ const webpack = {
     new HtmlWebpackPlugin({
       filename: "index.html", //Name of file in ./dist/
       template: "public/index.html", //Name of template in ./src
+      favicon: "public/favicon.ico",
       hash: true,
       removeComments: true, // 주석 제거
     }),

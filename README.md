@@ -22,7 +22,7 @@ $ npm i -D ts-loader
 `sass-loader`: sass 와 로더를 같이 설치해야 scss 해석이 가능하다. scss 로더.  
 `css-loader`: css 파일들을 읽어준다  
 `style-loader`: 읽은 css 파일들을 style 태그로 만들어 head 태그 안에 넣어줍니다.  
-`file-loader`:  
+`file-loader`: 이름 그대로 파일을 로딩하는 로더, 이미지, svg 등등에 사용  
 `url-loader`:  
 `ts-loader`: webpack 과 ts 연결 로더 ts-loader 는 TypeScript 컴파일러인 tsc를 사용하고, tsconfig.json의 설정을 따릅니다
 
