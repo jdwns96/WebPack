@@ -1,6 +1,5 @@
 import React from "react";
 
-//@ts-ignore
 import image from "@assets/img/image1.jpeg";
 
 const Page1 = () => {

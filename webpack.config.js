@@ -70,7 +70,7 @@ const webpack = {
     new HtmlWebpackPlugin({
       filename: "index.html", //Name of file in ./dist/
       template: "public/index.html", //Name of template in ./src
-      favicon: "public/favicon.ico",
+      // favicon: "public/favicon.ico",
       hash: true,
       removeComments: true, // 주석 제거
     }),
