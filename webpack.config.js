@@ -1,6 +1,9 @@
 // internal module
 const path = require("path"); // (내장) 경로 탐지
 
+// third party module
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+
 // plugin
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // html 읽어서 묶어주는 플러그인
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // css
@@ -9,20 +12,20 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = {
   // 모드
   mode: "development" || "product",
-  // import 시 생략가능
+  // import 시 확장자 생략
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
+    plugins: [new TsconfigPathsPlugin()], // tsconfig 경로 설정 웹펙에 적용
   },
   // 입구
   entry: {
-    app: "./src/index",
+    index: "./src/index",
   },
   // 출구
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
   },
-
   // 모듈 설정
   module: {
     rules: [
@@ -60,14 +63,19 @@ const webpack = {
     }),
     // css를 import 형태로 사용해서 link 로 html 에 묶어준다.
     new MiniCssExtractPlugin({
-      filename: "app.css",
+      filename: "index.css",
     }),
     // 이전 빌드 결과물을 제거해준다.
     new CleanWebpackPlugin(),
   ],
 
-  // dev
-  devServer: { port: 9000, hot: true },
+  // dev-server , 웹펙 서버 사용시 옵션 설정
+  devServer: {
+    port: 8080,
+    hot: true,
+    historyApiFallback: true, // 테스트 url get요청 404 막기
+    open: true,
+  },
 };
 
 module.exports = webpack;

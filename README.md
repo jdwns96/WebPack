@@ -33,12 +33,14 @@ $ npm i -D html-webpack-plugin
 $ npm i -D mini-css-extract-plugin
 $ npm i -D clean-webpack-plugin
 
+$ npm i -D tsconfig-paths-webpack-plugin
 ```
 
 `html-webpack-plugin`: html 관련 plugin 입니다. 템플릿을 지정하거나 favicon을 설정할 수 있습니다.  
 `mini-css-extract-plugin`: style-loader를 대체하면서, link로 연결해주는 플러그인  
-("style-loader"와 MiniCssExtractPlugin.loader를 함께 사용하면 안됩니다!)  
-`clean-webpack-plugin`: 빌드 이전 결과물 제거
+("style-loader"와 MiniCssExtractPlugin.loader를 함께 사용하면 안된다.)  
+`clean-webpack-plugin`: 빌드 이전 결과물 제거.  
+`tsconfig-paths-webpack-plugin`: (not-plugin) tsconfig paths 경로를 웹팩에 적용시켜주는 모듈.
 
 # babel
 
